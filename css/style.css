@@ -1,0 +1,15 @@
+**{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header .container{
+    text-align: center;
+    margin-top: 50px;
+}
+.btn{
+    margin-left: 10px;
+}
+ul{
+   list-style: none;
+}

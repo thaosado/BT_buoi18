@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+   <!-- My Css -->
+   <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+        <h2>NHẬP VÀO SỐ NGUYÊN TỐ</h2>
+        <br>
+        <div class="d-flex align-item-center justify-content-center">
+        <input id="number" placeholder="Các số phân cách nhau bởi khoảng trắng" class="w-50">
+        <button class="btn btn-success" onclick="save()">Lưu</button>
+      </div>
+      <p class="mt-4 bg-light" id="arr">Các số đã lưu : </p>
+    </div>
+
+    <div class="body">
+      <div class="container">
+        <h2 class="mb-4">Chọn thao tác tính toán : </h2>
+        <select class="form-select" aria-label="Default select example">
+          <option selected >Chọn một trong các thao tác bên dưới</option>
+          <option value="sumPositive">Tổng các số dương trong mảng.</option>
+          <option value="countPositive">Đếm có bao nhiêu số dương trong mảng.</option>
+          <option value="min">Tìm số nhỏ nhất trong mảng.</option>
+          <option value="minPositive">Tìm số dương nhỏ nhất trong mảng.</option>
+          <option value="">Tìm số chẵn cuối cùng trong mảng. Nếu mảng không có giá trị chẵn thì trả về -1.</option>
+          <option value="change">Đổi chỗ 2 giá trị trong mảng theo vị trí (Cho nhập vào 2 vị trí muốn đổi chỗ giá trị).</option>
+          <option value="arenge">Sắp xếp mảng theo thứ tự tăng dần.</option>
+          <option value="firtOfPrime">Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố thì trả về – 1.</option>
+          <option value="addToFind">Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên?</option>
+          <option value="compare">So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</option>
+        </select>
+        <p class="mt-4">Kết quả: </p>
+      </div>
+    </div>
+  </div>
+    
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>
