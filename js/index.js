@@ -20,7 +20,6 @@ function calculator() {
                 result += arr[i];
             }
         }
-        console.log(result)
         document.getElementById('result').innerHTML = result;
     }
     if (select == 'countPositive') {
@@ -31,7 +30,6 @@ function calculator() {
             }
         }
         document.getElementById('result').innerHTML = result;
-        console.log(result)
     }
     if (select == 'min') {
         let result = arr[0];
@@ -41,7 +39,6 @@ function calculator() {
             }
         }
         document.getElementById('result').innerHTML = result;
-        console.log(result)
     }
     if (select == 'minPositive') {
         let result = arr[0];
@@ -54,7 +51,6 @@ function calculator() {
             result = "không tìm thấy số dương trong các số đã lưu"
         }
         document.getElementById('result').innerHTML = result;
-        console.log(result)
     }
 
     if (select == 'findLastOfEven') {
@@ -68,7 +64,7 @@ function calculator() {
             }
         }
         document.getElementById('result').innerHTML = result;
-        console.log(result)
+
     }
 
     if(select == 'change'){
@@ -81,30 +77,28 @@ function calculator() {
         result = newArr;
 
         document.getElementById('result').innerHTML = result;
-        console.log(result)
     }
 
     if(select == 'firtOfPrime'){
         let result = -1;
-        for(let i = 0; i<arr.length; i++){
-        if( arr[i]< 2){
-            return result;
-        }
+       for(let i = 0; i < arr.length; i++){
         if(arr[i] === 2){
             result = `${arr[i]} là số nguyên tố`;
         }
-        if(arr[i] % 2 === 0){
-            return result;
-        }
-    
-        for(let i = 3; i < Math.sqrt(arr[i]); i+=2){
-            if(arr[i] % i === 0){
-                return result;
+        if(arr[i] > 2){
+            for(let j = 3; j < Math.sqrt(arr[i]); j+=2 ){
+                if(arr[i] % j !== 0){
+                    result = `${arr[i]} là số nguyên tố`;
+                }
+                result = `${arr[i]} là số nguyên tố`;
             }
         }
-        }
+       }
+        
+        
+        console.log(result)   
         document.getElementById('result').innerHTML = result;
-        console.log(result)
+
     }
 
     if(select == 'compare'){
@@ -123,9 +117,8 @@ function calculator() {
             }
         }
         document.getElementById('result').innerHTML = result;
-        console.log(result)
+        
     }
-    console.log(arr)
 
 }
 
