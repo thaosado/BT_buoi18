@@ -18,13 +18,13 @@
 <body>
   <div class="header">
     <div class="container">
-        <h2>NHẬP VÀO SỐ NGUYÊN TỐ</h2>
+        <h2>NHẬP VÀO SỐ NGUYÊN</h2>
         <br>
         <div class="d-flex align-item-center justify-content-center">
         <input id="number" placeholder="Nhập và lưu vào từng số" class="w-50">
         <button class="btn btn-success" onclick="save()">Lưu</button>
       </div>
-      <p class="mt-4 bg-light">Các số đã lưu : <span id="arr"></span> </p>
+      <p class="mt-4 bg-light">Mảng số đã lưu : <span id="arr"></span> </p>
     </div>
 
     <div class="body">
@@ -37,16 +37,27 @@
           <option value="min">Tìm số nhỏ nhất trong mảng.</option>
           <option value="minPositive">Tìm số dương nhỏ nhất trong mảng.</option>
           <option value="findLastOfEven">Tìm số chẵn cuối cùng trong mảng. Nếu mảng không có giá trị chẵn thì trả về -1.</option>
-          <option value="change">Đổi chỗ 2 giá trị trong mảng theo vị trí (Cho nhập vào 2 vị trí muốn đổi chỗ giá trị).</option>
+          <option value="change">Đổi chỗ 2 giá trị trong mảng theo vị trí.</option>
           <option value="arenge">Sắp xếp mảng theo thứ tự tăng dần.</option>
           <option value="firtOfPrime">Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố thì trả về – 1.</option>
           <option value="addToFind">Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên?</option>
           <option value="compare">So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</option>
         </select>
-        <button class=" btn btn-success mt-4" onclick="calculator()">Tính</button>
-        <p class="mt-4">Kết quả: <span id="result"></span> </p>
+        <button class=" btn btn-success mt-4" onclick="calculator()">Chọn</button>
+        <p id="formResult" class="mt-4">Kết quả: <span id="result"></span> </p>
       </div>
     </div>
+
+  <div id="bonusChange" class="bonus mx-5 mb-5 d-none">
+    <p>Đếm vị trí các số đã lưu từ trái sang phải bắt đầu từ 0</p>
+    <label for="number1">Vị trí số thứ 1</label>
+    <input id="num1" class="w-50" placeholder="Nhập vào trị trí số thứ 1">
+    <br><br>
+    <label for="number1">Vị trí số thứ 2</label>
+    <input id="num2" class="w-50" placeholder="Nhập vào trị trí số thứ 2">
+    <button class="btn btn-success" onclick="bonusChange()">Lưu</button>
+    
+  </div>
   </div>
     
 
