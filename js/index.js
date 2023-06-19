@@ -1,74 +1,80 @@
-
-
+//Tạo hàm lấy và lưu giá trị số nhập vào
+let arr = [];
 function save() {
-    let stringArr = document.getElementById("number").value;
-    let arr = stringArr.split(" ");
-    document.getElementById('arr').innerHTML = `Các số đã lưu: ${stringArr}`;
-    console.log(arr)
+    let num = +document.getElementById('number').value;
+    arr.push(num);
+    document.getElementById('arr').innerHTML = arr;
 
     return arr;
 }
 
-console.log(arr)
-
-function sum() {
-    let result = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 0) {
-            result += arr[i];
+//Tạo hàm tính toán khi chọn thao tác
+function calculator() {
+    //lấy giá trị từ select
+    let select = document.getElementById('select').value;
+    //đặt điều kiện cho mỗi thao tác được chọn
+    if (select == 'sumPositive') {
+        let result = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                result += arr[i];
+            }
         }
+        console.log(result)
+        document.getElementById('result').innerHTML = result;
     }
-    console.log(result)
-}
-sum()
-
-function count() {
-    let result = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 0) {
-            result += 1;
+    if (select == 'countPositive') {
+        let result = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                result += 1;
+            }
         }
+        document.getElementById('result').innerHTML = result;
+        console.log(result)
     }
-    console.log(result)
-}
-count()
-
-function min() {
-    let result = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < result) {
-            result = arr[i];
+    if (select == 'min') {
+        let result = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < result) {
+                result = arr[i];
+            }
         }
+        document.getElementById('result').innerHTML = result;
+        console.log(result)
     }
-    console.log(result)
-}
-min()
-
-function minPositive() {
-    let result = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (0 <= arr[0] < result) {
-            result = arr[i];
+    if (select == 'minPositive') {
+        let result = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (0 <= arr[0] < result) {
+                result = arr[i];
+            }
         }
+        if (result < 0) {
+            result = "không tìm thấy số dương trong các số đã lưu"
+        }
+        document.getElementById('result').innerHTML = result;
+        console.log(result)
     }
-    if (result < 0) {
-        result = "không tìm thấy số dương trong các số đã lưu"
+
+    if (select == 'findLastOfEven') {
+        let result = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                result = arr[i];
+            }
+            else{
+                result = -1;
+            }
+        }
+        document.getElementById('result').innerHTML = result;
+        console.log(result)
     }
-    console.log(result)
+
+    // console.log(arr)
 }
 
-minPositive()
 
-function findLastOfPositive() {
-    let result = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 == 0) {
-            result = arr[i]
-        } else result = -1;
-    }
-    console.log(result)
-}
-findLastOfPositive()
 
 function change(a, b) {
     let num1 = arr[a];
