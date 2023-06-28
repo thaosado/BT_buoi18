@@ -24,7 +24,7 @@
         <input id="number" placeholder="Nhập và lưu vào từng số" class="w-50">
         <button class="btn btn-success" onclick="save()">Lưu</button>
       </div>
-      <p class="mt-4 bg-light">Mảng số đã lưu : <span id="arr"></span> </p>
+      <p class="mt-4 bg-light">Mảng số nguyên đã lưu : <span id="arr"></span> </p>
     </div>
 
     <div class="body">
@@ -55,9 +55,20 @@
     <br><br>
     <label for="number1">Vị trí số thứ 2</label>
     <input id="num2" class="w-50" placeholder="Nhập vào trị trí số thứ 2">
-    <button class="btn btn-success" onclick="bonusChange()">Lưu</button>
-    
+    <button class="btn btn-success" onclick="bonusChange()">Kết quả</button>
+  <p id="formResultBonusChange" class="mt-4">Mảng sau thay đổi:  <span id="resultChange"></span> </p>  
   </div>
+  <div id="addMore" class="bonus mx-5 mb-5 d-none">
+    <p>Nhập thêm một mảng số thực : </p>
+    <div class="d-flex align-item-center justify-content-center">
+      <input id="numberReal" placeholder="Nhập và lưu vào từng số" class="w-50">
+      <br>
+      <button class="btn btn-success" onclick="saveReal()">Lưu</button>  
+  </div>
+  <p class="mt-4 bg-light">Mảng số thực đã lưu : <span id="arr2"></span> </p>
+  <button class="btn btn-success" onclick="countInterge()">Đếm số nguyên trong mảng</button>
+  <p id="formResult2" class="mt-4">Kết quả: <span id="resultReal"></span> </p>
+
   </div>
     
 

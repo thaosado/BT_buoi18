@@ -2,8 +2,18 @@
 let arr = [];
 function save() {
     let num = +document.getElementById('number').value;
+
+    if (!num && num != 0) {
+        return alert("vui lòng nhập đúng số nguyên")
+    }
+    if (Math.floor(num) !== Math.ceil(num)) {
+        return alert("vui lòng nhập đúng số nguyên")
+    }
+
     arr.push(num);
     document.getElementById('arr').innerHTML = arr;
+
+    reset("number");
 }
 
 
@@ -12,118 +22,130 @@ function calculator() {
     //lấy giá trị từ select
     let select = document.getElementById('select').value;
     //đặt điều kiện cho mỗi thao tác được chọn
-    
+
     if (select == 'sumPositive') {
+        clearBonus();
         let result = 0;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
                 result += arr[i];
             }
         }
-        document.getElementById('result').innerHTML = result;
+        return document.getElementById('result').innerHTML = result;
     }
     if (select == 'countPositive') {
+        clearBonus();
         let result = 0;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
                 result += 1;
             }
         }
-        document.getElementById('result').innerHTML = result;
+        return document.getElementById('result').innerHTML = result;
     }
     if (select == 'min') {
+        clearBonus();
         let result = arr[0];
         for (let i = 1; i < arr.length; i++) {
             if (arr[i] < result) {
                 result = arr[i];
             }
         }
-        document.getElementById('result').innerHTML = result;
+        return document.getElementById('result').innerHTML = result;
     }
     if (select == 'minPositive') {
-        let result = arr[0];
-        for (let i = 1; i < arr.length; i++) {
-            if (0 <= arr[0] < result) {
-                result = arr[i];
+        clearBonus();
+        let arrPositive = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] >= 0) {
+                arrPositive.push(arr[i])
             }
         }
-        if (result < 0) {
-            result = "không tìm thấy số dương trong các số đã lưu"
-        }
-        document.getElementById('result').innerHTML = result;
+        let arengeArrPositive = arrPositive.sort(bonusSort);
+        result = arengeArrPositive[0];
+
+        return document.getElementById('result').innerHTML = result;
     }
 
     if (select == 'findLastOfEven') {
-        let result = 0;
+        clearBonus();
+        let result = -1;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] % 2 === 0) {
                 result = arr[i];
             }
-            else{
-                result = -1;
-            }
         }
-        document.getElementById('result').innerHTML = result;
+        return document.getElementById('result').innerHTML = result;
 
     }
 
-    if(select == 'change'){
+    if (select == 'change') {
         document.getElementById('bonusChange').classList.remove('d-none');
+        document.getElementById("formResult").innerHTML = `Mảng hiện tại: ${arr}`;
     }
-    
-    if(select == 'arenge' ){
-        let result = 0;
+
+    if (select == 'arenge') {
+        clearBonus();
+        let result = [];
         let newArr = arr.sort(bonusSort);
         result = newArr;
 
-        document.getElementById('result').innerHTML = result;
+        console.log(arr, newArr)
+
+        return document.getElementById('result').innerHTML = result;
     }
 
-    if(select == 'firtOfPrime'){
+    if (select == 'firtOfPrime') {
         let result = -1;
-       for(let i = 0; i < arr.length; i++){
-        if(arr[i] === 2){
-            result = `${arr[i]} là số nguyên tố`;
-        }
-        if(arr[i] > 2){
-            for(let j = 3; j < Math.sqrt(arr[i]); j+=2 ){
-                if(arr[i] % j !== 0){
-                    result = `${arr[i]} là số nguyên tố`;
-                }
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === 2) {
                 result = `${arr[i]} là số nguyên tố`;
             }
+            if (arr[i] > 2) {
+                for (let j = 3; j < Math.sqrt(arr[i]); j += 2) {
+                    if (arr[i] % j !== 0) {
+                        result = `${arr[i]} là số nguyên tố`;
+                    }
+                    result = `${arr[i]} là số nguyên tố`;
+                }
+            }
         }
-       }
-        
-        
-        console.log(result)   
+
+        console.log(result)
         document.getElementById('result').innerHTML = result;
 
     }
 
-    if(select == 'compare'){
+    if (select == 'compare') {
+        clearBonus();
         let result = "";
         let count = 0;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] >= 0) {
                 count += 1;
             }
-            if(count > arr.length / 2){
+            if (count > arr.length / 2) {
                 result = "Số lượng số dương nhiều hơn số âm";
-            }else if(count == arr.length / 2){
+            } else if (count == arr.length / 2) {
                 result = "Số lượng số dương bằng số âm"
-            }else{
+            } else {
                 result = "Số lượng số âm nhiều hơn số dương";
             }
         }
-        document.getElementById('result').innerHTML = result;
-        
+        return document.getElementById('result').innerHTML = result;
+
+    }
+
+    if (select == 'addToFind') {
+        clearBonus();
+        document.getElementById('addMore').classList.remove('d-none');
+        document.getElementById("formResult").classList.add('d-none');
     }
 
 }
 
 
-function bonusChange(){
+function bonusChange() {
     let num1 = +document.getElementById('num1').value;
     let num2 = +document.getElementById('num2').value;
     let a = arr[num1];
@@ -131,10 +153,41 @@ function bonusChange(){
     arr[num1] = b;
     arr[num2] = a;
 
-    document.getElementById('result').innerHTML = arr;
+    document.getElementById('resultChange').innerHTML = arr;
     console.log(arr);
 }
-function bonusSort(a, b){
+function bonusSort(a, b) {
     return a - b
 }
+let arr2 = [];
+function saveReal() {
+    let numReal = +document.getElementById("numberReal").value;
+    if (!numReal && numReal != 0) {
+        return alert("vui lòng nhập đúng số thực")
+    }
 
+    arr2.push(numReal);
+    document.getElementById('arr2').innerHTML = arr2;
+
+    reset("numberReal");
+}
+function countInterge() {
+    let count = 0;
+    for (let i = 0; i < arr2.length; i++) {
+        if (Math.ceil(arr2[i]) === Math.floor(arr2[i])) {
+            count += 1;
+        }
+        document.getElementById("resultReal").innerHTML = `Có ${count} số nguyên trong mảng`
+    }
+}
+
+function reset(id) {
+    document.getElementById(id).value = "";
+}
+function clearBonus(){
+    document.getElementById('bonusChange').classList.add('d-none');
+    document.getElementById('addMore').classList.add('d-none');
+    document.getElementById("formResult").classList.remove('d-none');
+    document.getElementById("formResult").innerHTML = `Kết quả: <span id="result"></span>`;
+
+}
