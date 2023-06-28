@@ -96,23 +96,17 @@ function calculator() {
     }
 
     if (select == 'firtOfPrime') {
-        let result = -1;
+        clearBonus();
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] === 2) {
-                result = `${arr[i]} là số nguyên tố`;
-            }
-            if (arr[i] > 2) {
-                for (let j = 3; j < Math.sqrt(arr[i]); j += 2) {
-                    if (arr[i] % j !== 0) {
-                        result = `${arr[i]} là số nguyên tố`;
-                    }
-                    result = `${arr[i]} là số nguyên tố`;
-                }
-            }
+            result = checkPrime(arr[i]);
+            console.log(result)
+            if(result){
+                return document.getElementById('result').innerHTML = `${arr[i]} là số nguyên tố`;
+            }else{
+            document.getElementById('result').innerHTML = "không tìm thấy số nguyên tố trong mảng"}
         }
-
         console.log(result)
-        document.getElementById('result').innerHTML = result;
+        
 
     }
 
@@ -184,10 +178,29 @@ function countInterge() {
 function reset(id) {
     document.getElementById(id).value = "";
 }
-function clearBonus(){
+function clearBonus() {
     document.getElementById('bonusChange').classList.add('d-none');
     document.getElementById('addMore').classList.add('d-none');
     document.getElementById("formResult").classList.remove('d-none');
     document.getElementById("formResult").innerHTML = `Kết quả: <span id="result"></span>`;
 
+}
+
+function checkPrime(n) {
+    let flag = true;
+    if (n < 2) {
+        return flag = false;
+    }
+    if (n === 2) {
+        return flag = true;
+    }
+    if (n % 2 == 0) {
+        return flag = false;
+    }
+    for (let i = 3; i < Math.sqrt(n); i += 2) {
+        if (n % i == 0) {
+            return flag = false;
+        }
+    }
+    return flag;
 }
