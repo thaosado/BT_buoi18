@@ -81,7 +81,7 @@ function calculator() {
 
     if (select == 'change') {
         document.getElementById('bonusChange').classList.remove('d-none');
-        document.getElementById("formResult").innerHTML = `Mảng hiện tại: ${arr}`;
+        document.getElementById("formResult").innerHTML = `Mảng trước thay đổi: ${arr}`;
     }
 
     if (select == 'arenge') {
@@ -144,7 +144,7 @@ function bonusChange() {
     arr[num1] = b;
     arr[num2] = a;
 
-    document.getElementById('resultChange').innerHTML = arr;
+    document.getElementById('resultChange').innerHTML = arr;document.getElementById('arr').innerHTML = arr;
     
 }
 function bonusSort(a, b) {
