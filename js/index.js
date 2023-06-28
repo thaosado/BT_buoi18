@@ -89,23 +89,20 @@ function calculator() {
         let result = [];
         let newArr = arr.sort(bonusSort);
         result = newArr;
+        document.getElementById("formResult").classList.add("d-none");
 
-        console.log(arr, newArr)
-
-        return document.getElementById('result').innerHTML = result;
+        return document.getElementById('arr').innerHTML = result;
     }
 
     if (select == 'firtOfPrime') {
         clearBonus();
         for (let i = 0; i < arr.length; i++) {
             result = checkPrime(arr[i]);
-            console.log(result)
             if(result){
                 return document.getElementById('result').innerHTML = `${arr[i]} là số nguyên tố`;
             }else{
             document.getElementById('result').innerHTML = "không tìm thấy số nguyên tố trong mảng"}
         }
-        console.log(result)
         
 
     }
@@ -148,7 +145,7 @@ function bonusChange() {
     arr[num2] = a;
 
     document.getElementById('resultChange').innerHTML = arr;
-    console.log(arr);
+    
 }
 function bonusSort(a, b) {
     return a - b
@@ -183,7 +180,6 @@ function clearBonus() {
     document.getElementById('addMore').classList.add('d-none');
     document.getElementById("formResult").classList.remove('d-none');
     document.getElementById("formResult").innerHTML = `Kết quả: <span id="result"></span>`;
-
 }
 
 function checkPrime(n) {
